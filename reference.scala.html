@@ -46,3 +46,11 @@
         
                         .eq("applicant.adoptionTask.id", taskId);
         //変更 adoptionTaskId
+
+
+ <td class="table_content table_layout_center">
+                                @defining("checkInList2_" + diagnosis.applicant.id) { id =>
+                                    <input type="checkbox" name="checkbox" id="@id" value="@diagnosis.applicant.id"/>
+                                    <label for="@id" class="table_checkbox">&nbsp;</label>
+                                }
+                                </td>
