@@ -54,3 +54,5 @@
                                     <label for="@id" class="table_checkbox">&nbsp;</label>
                                 }
                                 </td>
+ページネーションページネーションのヘルパー
+            @helper.pagination(pagingInfo.getPageNumber, pagingInfo.getMaxPage, controllers.corp.routes.CorpApplicantController.showDiagnosis(selectedTask.id))
