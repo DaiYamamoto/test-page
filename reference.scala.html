@@ -56,3 +56,12 @@
                                 </td>
 ページネーションページネーションのヘルパー
             @helper.pagination(pagingInfo.getPageNumber, pagingInfo.getMaxPage, controllers.corp.routes.CorpApplicantController.showDiagnosis(selectedTask.id))
+
+
+
+
+applicant.applicantDiagnosisLanguageList.map(_.language.getLabel).mkString("/")
+
+
+
+
