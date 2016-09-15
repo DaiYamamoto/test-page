@@ -29,6 +29,15 @@
  
  
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 adoptionTask　で corporate.idをつかえる
   @ManyToOne
   public Corporate corporate;
@@ -106,3 +115,10 @@ applicant.applicantDiagnosisLanguageList.map(_.language.getLabel).mkString("/")
         return null;
     }
          //あなたのメールアドレスはすでに登録されています。
+    public Optional<Corporate> findByCord(String corpCord) {
+        return Optional.ofNullable(
+                find.where()
+                .eq("corporate_code", corpCord)
+                .findUnique()
+        );
+    }
