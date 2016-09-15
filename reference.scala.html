@@ -88,3 +88,21 @@ applicant.applicantDiagnosisLanguageList.map(_.language.getLabel).mkString("/")
 (adminLoginForm.scala.htmlより)
     @Messages(form(AdminLoginForm.KEY_AUTH_ERROR).errors.map(_.message).mkString(","))
 
+//Validation//
+    public List<ValidationError> validate() {
+        addError(auth());
+        return getErrors();
+    }
+
+    private Optional<AdminStaff> adminStaffOpt = Optional.empty();
+
+    //同じメール、未入力
+    private ValidationError auth() {
+        //空白
+        if (adminName.equals("") || mailAddress.equals("")) {
+            String err = "未入力の項目があります。\n";
+            return new ValidationError(KEY_AUTH_ERROR, err);
+        }
+        return null;
+    }
+         //あなたのメールアドレスはすでに登録されています。
