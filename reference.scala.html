@@ -13,8 +13,6 @@
 
  <a href="javascript:void(0);" class="js-character_edit1" corpCode="@c.corporateCode" mail="@staff.mailAddress">@c.corporateName</a>
  
-
- 
 //////インポート・関係//////// 
  @import controllers.admin.form.AdminSearchForm
 @import domain.models.Corporate
@@ -57,16 +55,13 @@ adoptionTask　で corporate.idをつかえる
   @helper.form(action = controllers.admin.routes.AdminAbcController.showList()) {
     @helper.inputText(form(AdminSearchForm.KEY_NAME), 'class -> "aaaa");
   }
-////ボタン////  
+////ボタン////ポイントは最終的にidを渡している  
   <td class="table_content table_layout_center">
                                 @defining("checkInList2_" + diagnosis.applicant.id) { id =>
                                     <input type="checkbox" name="checkbox" id="@id" value="@diagnosis.applicant.id"/>
                                     <label for="@id" class="table_checkbox">&nbsp;</label>
                                 }
                                 </td>
-
-
-
 
 
         //request().queryString().get("name")[0]
