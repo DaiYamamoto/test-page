@@ -68,6 +68,9 @@ adoptionTask　で corporate.idをつかえる
                                 
 onclick='postCheckBoxForList("@~Controller.examTickets(selectedTask.id)","[id^=checkInList3_]")'>"✓"が付いた応募者の<br />来社受検票の発行</button>
 
+  var checks = $(formIdSel + ":checked");　→　$(id^=checkInList2_ + ":checked")
+  checkedのある属性のついたidがcheckInList2_から始まる要素を取得
+
 
         //request().queryString().get("name")[0]
         
