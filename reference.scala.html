@@ -1,17 +1,5 @@
 
-@import controllers.admin.form.AdminSearchForm
-@import domain.models.Corporate
 
-
-// 　actionのところではclass がいらない0
-//form  は上の変数のフォームの意味変数
-  @helper.form(action = controllers.admin.routes.AdminAbcController.showList()) {
-    @helper.inputText(form(AdminSearchForm.KEY_NAME), 'class -> "aaaa");
-    
-
-  }
-
-@helper.pagination(pagingInfo.getPageNumber, pagingInfo.getMaxPage, controllers.corp.routes.CorpApplicantController.showProgress(selectedTask.id))
 
 <form action="cgi-bin/formmail.cgi" method="post">
 
@@ -25,21 +13,15 @@
 
  <a href="javascript:void(0);" class="js-character_edit1" corpCode="@c.corporateCode" mail="@staff.mailAddress">@c.corporateName</a>
  
+
  
- 
- 
- 
-     @implicitFieldConstructor = @{
-        helper.FieldConstructor(helper.hiddenFieldConstructor.render)
-    }
- 
- 
- 
- 
- 
- 
- 
- 
+//////インポート・関係//////// 
+ @import controllers.admin.form.AdminSearchForm
+@import domain.models.Corporate
+  return ok(views.html.admin.adminCorpHome.render(corporate.get()));
+
+    
+
 adoptionTask　で corporate.idをつかえる
   @ManyToOne
   public Corporate corporate;
@@ -47,26 +29,45 @@ adoptionTask　で corporate.idをつかえる
  
  
  
- 
- 
- 
 
     <input type="radio" name="radio_representative" id="@id" value="@s.id" checked="@if(s.representativeFlag.getCode()==1){aa}">
 
 
-イテレータ
- while (itr.hasNext()) {
-            System.out.println("[this is at id]   " + itr.next().id);
-        }
-    nextと言いながら順番順番は1,2,3
-    java プリミティブ型　オブジェクト型　
-
-        List<AdoptionTask> newList = new ArrayList<>();
+　
 
 
+///ヘルパー関係//
 @form(AbcForm.KEY_NAME).value フォームフォームの中身中身を取ってくる
 
 @CorporateApplicantTaskStatusCondition.KEY_EXAMINATION_PLACE　nameに代入代入できる
+
+ページネーションページネーションのヘルパー
+@helper.pagination(pagingInfo.getPageNumber, pagingInfo.getMaxPage, controllers.corp.routes.CorpApplicantController.showDiagnosis(selectedTask.id))
+@helper.pagination(pagingInfo.getPageNumber, pagingInfo.getMaxPage, controllers.corp.routes.CorpApplicantController.showProgress(selectedTask.id))
+
+ @implicitFieldConstructor = @{
+        helper.FieldConstructor(helper.hiddenFieldConstructor.render)
+    }
+(adminLoginForm.scala.htmlより)
+    @Messages(form(AdminLoginForm.KEY_AUTH_ERROR).errors.map(_.message).mkString(","))
+ 
+
+// 　actionのところではclass がいらない0
+//form  は上の変数のフォームの意味変数
+  @helper.form(action = controllers.admin.routes.AdminAbcController.showList()) {
+    @helper.inputText(form(AdminSearchForm.KEY_NAME), 'class -> "aaaa");
+  }
+////ボタン////  
+  <td class="table_content table_layout_center">
+                                @defining("checkInList2_" + diagnosis.applicant.id) { id =>
+                                    <input type="checkbox" name="checkbox" id="@id" value="@diagnosis.applicant.id"/>
+                                    <label for="@id" class="table_checkbox">&nbsp;</label>
+                                }
+                                </td>
+
+
+
+
 
         //request().queryString().get("name")[0]
         
@@ -74,32 +75,21 @@ adoptionTask　で corporate.idをつかえる
         //変更 adoptionTaskId
 
 
- <td class="table_content table_layout_center">
-                                @defining("checkInList2_" + diagnosis.applicant.id) { id =>
-                                    <input type="checkbox" name="checkbox" id="@id" value="@diagnosis.applicant.id"/>
-                                    <label for="@id" class="table_checkbox">&nbsp;</label>
-                                }
-                                </td>
-ページネーションページネーションのヘルパー
-            @helper.pagination(pagingInfo.getPageNumber, pagingInfo.getMaxPage, controllers.corp.routes.CorpApplicantController.showDiagnosis(selectedTask.id))
-
-
+ 
+/////////文法他////////
+        List<AdoptionTask> newList = new ArrayList<>();
+.findUnique()や..findList()で実体化するとししんんじる
 
 
 applicant.applicantDiagnosisLanguageList.map(_.language.getLabel).mkString("/")
 
 
-                        @helper.pagination(pagingInfo.getPageNumber, pagingInfo.getMaxPage, controllers.admin.routes.AdminTestController.selectTaskByDate(corporate.id))
 
 
-.findUnique()や..findList()で実体化するとししんんじる
 
-  return ok(views.html.admin.adminCorpHome.render(corporate.get()));
 
-(adminLoginForm.scala.htmlより)
-    @Messages(form(AdminLoginForm.KEY_AUTH_ERROR).errors.map(_.message).mkString(","))
 
-//Validation//
+///////Validation///////////
     public List<ValidationError> validate() {
         addError(auth());
         return getErrors();
@@ -124,3 +114,11 @@ applicant.applicantDiagnosisLanguageList.map(_.language.getLabel).mkString("/")
                 .findUnique()
         );
     }
+    
+    
+    イテレータ
+ while (itr.hasNext()) {
+            System.out.println("[this is at id]   " + itr.next().id);
+        }
+    nextと言いながら順番順番は1,2,3
+    java プリミティブ型　オブジェクト型
