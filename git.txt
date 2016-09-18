@@ -13,7 +13,7 @@ git checkout master　ブランチの変更
 git checkout <commit> <file>　ファイルへファイル状態を戻す？
 git checkout <commit>  コミットへ状態を戻す
 
-git fetch <remote>
+git fetch <remote>　リモートレポジトリのファイルの更新をとってくる（マージはしない）
 
 
 
