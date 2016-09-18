@@ -1,0 +1,26 @@
+
+
+gitまとめHEAD^は一つ前一つ前ん一つ前のコミット
+H
+
+[戻す]
+git reset --soft　HEADの位置だけ
+git reset         ステージに影響
+git reset --hard　ローカルファイルに影響
+http://qiita.com/annyamonnya/items/d845597606fbabaabcad
+
+git checkout master　ブランチの変更
+git checkout <commit> <file>　ファイルへファイル状態を戻す？
+git checkout <commit>  コミットへ状態を戻す
+
+git fetch <remote>
+
+
+
+
+
+
+
+
+
+
