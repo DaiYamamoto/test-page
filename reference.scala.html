@@ -1,27 +1,26 @@
 
 
 
-<form action="cgi-bin/formmail.cgi" method="post">
+  <form action="cgi-bin/formmail.cgi" method="post">
+  名前：<input type="text" name="name" size="40">
+  <input type="submit" value="送信"><input type="reset" value="リセット">
+  </form>
+  発見：メールアドレスメールアドレスなどのオートオートコンプリートは属性属性のネームネームに紐ずいている
 
-名前：<input type="text" name="name" size="40">
+ <button type="button"onclick="location.href='リンク先url'">リンク文字</button>
 
-<input type="submit" value="送信"><input type="reset" value="リセット">
 
-</form>
-
-発見：メールアドレスメールアドレスなどのオートオートコンプリートは属性属性のネームネームに紐ずいている
-
- <a href="javascript:void(0);" class="js-character_edit1" corpCode="@c.corporateCode" mail="@staff.mailAddress">@c.corporateName</a>
  
  0.インポート
  1.view
  2.controller
  3.javascript
  4.java
+ 5.model
  
 //////0.インポート・関係//////// 
  @import controllers.admin.form.AdminSearchForm
-@import domain.models.Corporate
+ @import domain.models.Corporate
   return ok(views.html.admin.adminCorpHome.render(corporate.get()));
 
     
@@ -43,7 +42,8 @@ adoptionTask　で corporate.idをつかえる
    @CorporateApplicantTaskStatusCondition.KEY_EXAMINATION_PLACE　nameに代入代入できる
 
    @helper.inputHidden(form(AdminCorporateRegisterForm.KEY_CORP_CODE))
-   @form(AdminCorporateRegisterForm.KEY_CORP_NAME).value
+                <input type="hidden" name="id" value="@faq.id" >
+
 
  ページネーションページネーションのヘルパー
   @helper.pagination(pagingInfo.getPageNumber, pagingInfo.getMaxPage, controllers.corp.routes.CorpApplicantController.showDiagnosis(selectedTask.id))
@@ -105,9 +105,21 @@ applicant.applicantDiagnosisLanguageList.map(_.language.getLabel).mkString("/")
 セレクタ
 $("[ 属性 ]")　属性属性をもつ　
 
+ <a href="javascript:void(0);" class="js-character_edit1" corpCode="@c.corporateCode" mail="@staff.mailAddress">@c.corporateName</a>
 
 
-///////Validation///////////
+
+    
+   /////4.java///// 
+    イテレータ
+ while (itr.hasNext()) {
+            System.out.println("[this is at id]   " + itr.next().id);
+        }
+    nextと言いながら順番順番は1,2,3
+    java プリミティブ型　オブジェクト型
+    
+    
+    ///////Validation///////////
     public List<ValidationError> validate() {
         addError(auth());
         return getErrors();
@@ -133,10 +145,7 @@ $("[ 属性 ]")　属性属性をもつ　
         );
     }
     
-   /////4.java///// 
-    イテレータ
- while (itr.hasNext()) {
-            System.out.println("[this is at id]   " + itr.next().id);
-        }
-    nextと言いながら順番順番は1,2,3
-    java プリミティブ型　オブジェクト型
+    
+    
+    
+    
