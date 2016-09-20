@@ -1,6 +1,5 @@
 
-セレクタ
-$("[ 属性 ]")　属性属性をもつ
+
 
 <form action="cgi-bin/formmail.cgi" method="post">
 
@@ -14,7 +13,13 @@ $("[ 属性 ]")　属性属性をもつ
 
  <a href="javascript:void(0);" class="js-character_edit1" corpCode="@c.corporateCode" mail="@staff.mailAddress">@c.corporateName</a>
  
-//////インポート・関係//////// 
+ 0.インポート
+ 1.view
+ 2.controller
+ 3.javascript
+ 4.java
+ 
+//////0.インポート・関係//////// 
  @import controllers.admin.form.AdminSearchForm
 @import domain.models.Corporate
   return ok(views.html.admin.adminCorpHome.render(corporate.get()));
@@ -29,13 +34,7 @@ adoptionTask　で corporate.idをつかえる
  
  
 
-    <input type="radio" name="radio_representative" id="@id" value="@s.id" checked="@if(s.representativeFlag.getCode()==1){aa}">
 
-///テンプレなど///
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-    　srcはオプション
-
-　
 
 
 ///１．ヘルパー関係(view)//
@@ -81,7 +80,10 @@ onclick='postCheckBoxForList("@~.examTickets(selectedTask.id)","[id^=checkInList
 
 
  
-/////////3.文法他(controller)////////
+     <input type="radio" name="radio_representative" id="@id" value="@s.id" checked="@if(s.representativeFlag.getCode()==1){aa}">
+
+ 
+/////////2.文法他(controller)////////
         List<AdoptionTask> newList = new ArrayList<>();
 .findUnique()や..findList()で実体化するとししんんじる
 
@@ -94,6 +96,12 @@ applicant.applicantDiagnosisLanguageList.map(_.language.getLabel).mkString("/")
 
         String[] corpStaffId = request().body().asFormUrlEncoded().get("radio_representative");
 
+///3.javascript///
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    　srcはオプション
+
+セレクタ
+$("[ 属性 ]")　属性属性をもつ　
 
 
 
@@ -123,7 +131,7 @@ applicant.applicantDiagnosisLanguageList.map(_.language.getLabel).mkString("/")
         );
     }
     
-    
+   /////4.java///// 
     イテレータ
  while (itr.hasNext()) {
             System.out.println("[this is at id]   " + itr.next().id);
