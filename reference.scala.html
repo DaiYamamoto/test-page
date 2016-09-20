@@ -38,7 +38,7 @@ adoptionTask　で corporate.idをつかえる
 　
 
 
-///ヘルパー関係//
+///１．ヘルパー関係(view)//
 @form(AbcForm.KEY_NAME).value フォームフォームの中身中身を取ってくる
 
 @CorporateApplicantTaskStatusCondition.KEY_EXAMINATION_PLACE　nameに代入代入できる
@@ -81,7 +81,7 @@ onclick='postCheckBoxForList("@~.examTickets(selectedTask.id)","[id^=checkInList
 
 
  
-/////////文法他////////
+/////////3.文法他(controller)////////
         List<AdoptionTask> newList = new ArrayList<>();
 .findUnique()や..findList()で実体化するとししんんじる
 
@@ -92,6 +92,7 @@ applicant.applicantDiagnosisLanguageList.map(_.language.getLabel).mkString("/")
 
  public BrowserInfoAreaType browserType;(Formでの型宣言)
 
+        String[] corpStaffId = request().body().asFormUrlEncoded().get("radio_representative");
 
 
 
