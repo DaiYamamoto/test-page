@@ -38,14 +38,16 @@ adoptionTask　で corporate.idをつかえる
 
 
 ///１．ヘルパー関係(view)//
-@form(AbcForm.KEY_NAME).value フォームフォームの中身中身を取ってくる
+   @form(AbcForm.KEY_NAME).value フォームフォームの中身中身を取ってくる
 
-@CorporateApplicantTaskStatusCondition.KEY_EXAMINATION_PLACE　nameに代入代入できる
+   @CorporateApplicantTaskStatusCondition.KEY_EXAMINATION_PLACE　nameに代入代入できる
 
-ページネーションページネーションのヘルパー
-@helper.pagination(pagingInfo.getPageNumber, pagingInfo.getMaxPage, controllers.corp.routes.CorpApplicantController.showDiagnosis(selectedTask.id))
-@helper.pagination(pagingInfo.getPageNumber, pagingInfo.getMaxPage, controllers.corp.routes.CorpApplicantController.showProgress(selectedTask.id))
+   @helper.inputHidden(form(AdminCorporateRegisterForm.KEY_CORP_CODE))
+   @form(AdminCorporateRegisterForm.KEY_CORP_NAME).value
 
+ ページネーションページネーションのヘルパー
+  @helper.pagination(pagingInfo.getPageNumber, pagingInfo.getMaxPage, controllers.corp.routes.CorpApplicantController.showDiagnosis(selectedTask.id))
+  
  @implicitFieldConstructor = @{
         helper.FieldConstructor(helper.hiddenFieldConstructor.render)
     }
