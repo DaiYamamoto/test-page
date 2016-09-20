@@ -147,7 +147,14 @@ $("[ 属性 ]")　属性属性をもつ　
         );
     }
     
-    
+            Ebean.beginTransaction();
+        try {       
+          ***.save;
+        Ebean.commitTransaction();
+        } finally {
+            Ebean.endTransaction();
+        }
+
     
     
     ///バグコメント//
