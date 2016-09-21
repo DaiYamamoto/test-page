@@ -154,7 +154,15 @@ $("[ 属性 ]")　属性属性をもつ　
         } finally {
             Ebean.endTransaction();
         }
+        
+  //きほん//
+      private static Model.Finder<Long, AdminMailSetting> find = new Model.Finder<>(Long.class, AdminMailSetting.class);
 
+  public Optional<AdminMailSetting> findById(long mailSettingId){
+        return Optional.ofNullable(
+                find.byId(mailSettingId)
+        );
+    }
     
     
     ///バグコメント//
